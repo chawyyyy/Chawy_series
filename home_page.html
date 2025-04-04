@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chawy series</title>
+    
+    <style>
+        body {
+            margin: 0;
+            background: url('home_background.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            position: relative;
+            width: 867px;
+            height: 1062px;
+        }
+        .yellow-layer {
+            position: absolute;
+            width: 867px;
+            height: 1062px;
+            background: url('yellow_layer.png') no-repeat center center;
+            background-size: cover;
+        }
+        .red-box {
+            position: absolute;
+            width: 100px; 
+            height: 100px;
+            cursor: pointer;
+        }
+        .red-box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .white-box {
+            position: absolute;
+            width: 150px; 
+            height: 150px;
+        }
+
+        /* ตำแหน่งของ Object */
+        .yellow-layer { top: 250px; left: 8px; }
+        .red-box1 { top: 650px; left: 30px; }
+        .red-box2 { top: 760px; left: 30px; }
+        .red-box3 { top: 670px; right: 42px; }
+        .red-box4 { top: 831px; right: 42px; }
+        .white-box1 { top: 890px; left: 224px; }
+
+        /* แถบข้อความเลื่อน */
+        .scroll-container {
+            position: absolute;
+            top: 588px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 789px;
+            height: 34px;
+            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-text {
+            white-space: nowrap;
+            animation: scrollText 4s linear infinite;
+            font-size: 18px;
+            color: black;
+            padding: 5px;
+        }
+
+        @keyframes scrollText {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .red-box3 { top: 670px; right: -450px; }
+            .red-box4 { top: 831px; right: -450px; }
+            .scroll-container {
+                width: 780px;
+                height: 35px;
+                top: 588px;
+                left: 117%;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="yellow-layer"></div>
+        <div class="red-box red-box1"><a href="page_ocinfo.html"><img src="red_box1.png" alt="page_ocinfo.html"></a></div>
+        <div class="red-box red-box2"><a href="page_storyworld.html"><img src="red_box2.png" alt="page_storyworld.html"></a></div>
+        <div class="red-box red-box3"><a href="page_NEWS.html"><img src="red_box3.png" alt="page_NEWS.html"></a></div>
+        <div class="red-box red-box4"><a href="page_artgallery.html"><img src="red_box4.png" alt="page_artgallery.html"></a></div>
+        <div class="white-box white-box1"><img src="gif_image.gif" alt="GIF"></div>
+
+        <!-- แถบข้อความเลื่อน -->
+        <div class="scroll-container">
+            <div class="scroll-text">── ೀ.─ 𝘞𝘌𝘓𝘊𝘖𝘔𝘌 - ༘🍏 𖦹˙────-</div>
+        </div>
+    </div>
+    
+    <style>
+        .white-box1 img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+    
+    <script>
+    function checkOrientation() {
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const isLandscape = window.innerWidth > window.innerHeight;
+
+        if (isMobile && isLandscape) {
+            document.getElementById("rotate-alert").style.display = "flex";
+            document.body.style.overflow = "hidden"; // ปิดการเลื่อนเว็บ
+        } else {
+            document.getElementById("rotate-alert").style.display = "none";
+            document.body.style.overflow = "auto"; // เปิดการเลื่อนเว็บอีกครั้ง
+        }
+    }
+
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("load", checkOrientation);
+    </script>
+
+    <!-- หน้าจอแจ้งเตือนให้หมุนจอกลับ -->
+    <div id="rotate-alert" style="
+        display: none; 
+        position: fixed; 
+        top: 0; left: 0; width: 100%; height: 100%; 
+        background: white; 
+        z-index: 9999;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    ">
+        <img src="rotate_icon.png" alt="">
+        <p style="font-size: 25px; color: black;">Please rotate your device to portrait mode to view the website.</p>
+    </div>
+    
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+        }
+        /* กำหนดให้เป็นตำแหน่งอิสระ */
+        .box {
+            position: absolute;
+        }
+        /* ข้อความที่ลิงก์ได้ */
+        .link {
+            color: #CE848B;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .link:hover {
+            color: #DA6074;
+        }
+        /* ข้อความที่ไม่ต้องลิงก์ */
+        .text {
+            color: #513623;
+        }
+
+        .font1 { font-family: "Times New Roman", serif; font-size: 30px; font-style: italic; font-weight: bold;}
+        .font2 { font-family: "Verdana", sans-serif; font-size: 18px; color: #513623; }
+        .font3 { font-family: "Verdana", sans-serif; font-size: 25px; }
+        /* --------- ตำแหน่งที่กำหนดได้ --------- */
+        #hello { top: px; left: 50px; }
+        #game { top: 150px; left: 200px; }
+
+        #comic1 { top: 150px; left: 400px; }
+        #comic2 { top: 200px; left: 400px; }
+        #comic3 { top: 250px; left: 400px; }
+        #comic4 { top: 300px; left: 400px; }
+
+        #contact1 { top: 350px; left: 600px; }
+        #contact2 { top: 400px; left: 600px; }
+        #contact3 { top: 450px; left: 600px; }
+        #contact4 { top: 500px; left: 600px; }
+
+        /* ---- Mobile Responsive ---- */
+        @media (max-width: 768px) {
+            .box {
+                font-size: 18px;
+            }
+            #hello { top: 815px; left: 70px; }
+            #game { top: 740px; left: 40px; }
+
+            #comic1 { top: 952px; left: 65px; }
+            #comic2 { top: 988px; left: 65px; }
+            #comic3 { top: 1024px; left: 65px; }
+            #comic4 { top: 1060px; left: 65px; }
+
+            #contact1 { top: 970px; left: 745px; }
+            #contact2 { top: 997px; left: 745px; }
+            #contact3 { top: 1024px; left: 745px; }
+            #contact4 { top: 1051px; left: 745px; }
+        }
+    </style>
+</head>
+<body>
+
+    <p id="hello" class="box text font3">ദ്ദി  ˆ꒳ˆ )✧</p>
+    <p id="game" class="box font1"><a href="game.html" class="link">Download my game here !</a></p>
+
+    <p id="comic1" class="box font2"><a href="comic1.html" class="link">comic1</a></p>
+    <p id="comic2" class="box font2"><a href="comic2.html" class="link">comic2</a></p>
+    <p id="comic3" class="box font2"><a href="comic3.html" class="link">comic3</a></p>
+    <p id="comic4" class="box font2"><a href="comic4.html" class="link">comic4</a></p>
+
+    <p id="contact1" class="box font2"><a href="contact1.html" class="link">contact1</a></p>
+    <p id="contact2" class="box font2"><a href="contact2.html" class="link">contact2</a></p>
+    <p id="contact3" class="box font2"><a href="contact3.html" class="link">contact3</a></p>
+    <p id="contact4" class="box font2"><a href="contact4.html" class="link">contact4</a></p>
+    
+</body>
+</html>
